@@ -69,6 +69,11 @@ variable "machine_cidr" {
   default = "10.0.0.0/16"
 }
 
+variable "admin_credentials" {
+  type    = map(string)
+  default = null
+}
+
 # Roles
 
 variable "create_account_roles" {
@@ -99,6 +104,12 @@ variable "account_role_path" {
   description = "Output path from ther iam create module"
   type        = string
   default     = ""
+}
+
+variable "hypershift_enabled" {
+  description = "Enables hypershift (ROSA HCP)"
+  type    = bool
+  default = false
 }
 
 # OIDC
@@ -150,4 +161,15 @@ variable "multi_az" {
   description = "Create the vpc subnets in only one AZ"
   type        = bool
   default     = true
+}
+
+# AWS
+
+variable "billing_account_id" {
+  description = <<-EOT
+    ID of the AWS Billing Account, is different than the AWS Account 
+    associated with the caller of this terraform
+  EOT
+  type        = string
+  default     = null
 }

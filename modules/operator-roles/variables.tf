@@ -34,3 +34,9 @@ variable "oidc_endpoint_url" {
   description = "oidc provider url"
   type        = string
 }
+
+variable "hypershift_enabled" {
+  description = "Enables hypershift (ROSA HCP)"
+  type    = bool
+  default = false
+}

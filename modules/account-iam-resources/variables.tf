@@ -31,3 +31,9 @@ variable "ocm_environment" {
   type    = string
   default = "production"
 }
+
+variable "hypershift_enabled" {
+  description = "Enables hypershift (ROSA HCP)"
+  type    = bool
+  default = false
+}
